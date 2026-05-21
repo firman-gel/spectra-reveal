@@ -53,9 +53,9 @@ const SUBDIVISIONS_DATA: Subdivision[] = [
     bgGradient: "from-mario-yellow/10 to-transparent",
     description: "Merancang ide, tema, dan identitas acara sejak tahap awal. Menyusun arah cerita serta pengalaman yang ingin dibangun agar setiap kegiatan memiliki makna dan karakter yang kuat.",
     members: [
-      { name: "Liora", role: "Esther Liora Bara", badge: "1", color: "text-mario-yellow", bgGlow: "bg-mario-yellow/5 border-mario-yellow/20", photo: "/spectra-reveal/photos/liora.jpg" },
-      { name: "Nanay", role: "Nayla Novianti", badge: "2", color: "text-amber-300", bgGlow: "bg-amber-400/5 border-amber-500/20", photo: "/spectra-reveal/photos/nanay.jpg" },
-      { name: "Siti", role: "Siti Nurhalimah", badge: "3", color: "text-yellow-300", bgGlow: "bg-yellow-400/5 border-yellow-500/20", photo: "/spectra-reveal/photos/siti.jpg" },
+      { name: "Liora", role: "Esther Liora Bara", badge: "1", color: "text-mario-yellow", bgGlow: "bg-mario-yellow/5 border-mario-yellow/20", photo: "/photos/liora.jpg" },
+      { name: "Nanay", role: "Nayla Novianti", badge: "2", color: "text-amber-300", bgGlow: "bg-amber-400/5 border-amber-500/20", photo: "/photos/nanay.jpg" },
+      { name: "Siti", role: "Siti Nurhalimah", badge: "3", color: "text-yellow-300", bgGlow: "bg-yellow-400/5 border-yellow-500/20", photo: "/photos/siti.jpg" },
     ],
   },
   {
@@ -69,9 +69,9 @@ const SUBDIVISIONS_DATA: Subdivision[] = [
     bgGradient: "from-mario-red/10 to-transparent",
     description: "Mengelola performer dan kebutuhan panggung dengan koordinasi yang terarah. Menjaga komunikasi, ritme penampilan, dan kenyamanan agar seluruh talent dapat tampil maksimal.",
     members: [
-      { name: "Radha", role: "Radha Falisha Khairina", badge: "1", color: "text-mario-red", bgGlow: "bg-mario-red/5 border-mario-red/20", photo: "/spectra-reveal/photos/radha.jpg" },
-      { name: "Naima", role: "Naima Sahitya Andini", badge: "2", color: "text-rose-300", bgGlow: "bg-rose-400/5 border-rose-500/20", photo: "/spectra-reveal/photos/naima.jpg" },
-      { name: "Dara", role: "Darasadiah Isnaini Salsabila", badge: "3", color: "text-orange-300", bgGlow: "bg-rose-400/5 border-rose-500/20", photo: "/spectra-reveal/photos/dara.jpg" },
+      { name: "Radha", role: "Radha Falisha Khairina", badge: "1", color: "text-mario-red", bgGlow: "bg-mario-red/5 border-mario-red/20", photo: "/photos/radha.jpg" },
+      { name: "Naima", role: "Naima Sahitya Andini", badge: "2", color: "text-rose-300", bgGlow: "bg-rose-400/5 border-rose-500/20", photo: "/photos/naima.jpg" },
+      { name: "Dara", role: "Darasadiah Isnaini Salsabila", badge: "3", color: "text-orange-300", bgGlow: "bg-rose-400/5 border-rose-500/20", photo: "/photos/dara.jpg" },
     ],
   },
   {
@@ -85,9 +85,9 @@ const SUBDIVISIONS_DATA: Subdivision[] = [
     bgGradient: "from-mario-blue/10 to-transparent",
     description: "Mengawal sistem dan jalannya eksekusi di balik layar. Memastikan aspek teknis, alur operasional, dan kebutuhan lapangan berjalan presisi serta selaras dengan rancangan acara.",
     members: [
-      { name: "Kaura", role: "Anandigita Khauralya Putri", badge: "1", color: "text-mario-blue", bgGlow: "bg-mario-blue/5 border-mario-blue/20", photo: "/spectra-reveal/photos/kaura.jpg" },
-      { name: "Aldan", role: "Raden Muhammad Rizky Aldani", badge: "2", color: "text-sky-300", bgGlow: "bg-sky-400/5 border-sky-500/20", photo: "/spectra-reveal/photos/aldan.jpg" },
-      { name: "Nayya", role: "Nayyara Varda Wistan", badge: "3", color: "text-blue-300", bgGlow: "bg-blue-400/5 border-blue-500/20", photo: "/spectra-reveal/photos/nayya.jpg" },
+      { name: "Kaura", role: "Anandigita Khauralya Putri", badge: "1", color: "text-mario-blue", bgGlow: "bg-mario-blue/5 border-mario-blue/20", photo: "/photos/kaura.jpg" },
+      { name: "Aldan", role: "Raden Muhammad Rizky Aldani", badge: "2", color: "text-sky-300", bgGlow: "bg-sky-400/5 border-sky-500/20", photo: "/photos/aldan.jpg" },
+      { name: "Nayya", role: "Nayyara Varda Wistan", badge: "3", color: "text-blue-300", bgGlow: "bg-blue-400/5 border-blue-500/20", photo: "/photos/nayya.jpg" },
     ],
   },
 ];
