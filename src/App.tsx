@@ -343,8 +343,8 @@ export default function App() {
             }
           }}
           className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono tracking-wider border transition-all duration-300 ${soundEnabled
-              ? "bg-amber-500/10 border-amber-500/40 text-amber-300 shadow-[0_0_10px_rgba(245,158,11,0.15)]"
-              : "bg-zinc-800 border-zinc-700 text-zinc-500"
+            ? "bg-amber-500/10 border-amber-500/40 text-amber-300 shadow-[0_0_10px_rgba(245,158,11,0.15)]"
+            : "bg-zinc-800 border-zinc-700 text-zinc-500"
             }`}
           id="audio-toggle-btn"
         >
@@ -533,10 +533,10 @@ export default function App() {
                             }}
                             exit={{ scale: 0.92, opacity: 0, rotateY: 90 }}
                             className={`flex-grow flex flex-col items-center justify-center p-8 rounded-3xl border-2 border-dashed bg-black/30 backdrop-blur-sm shadow-xl transition-all duration-300 relative ${isInteractive
-                                ? "border-amber-500/50 cursor-pointer shadow-[0_0_25px_rgba(245,158,11,0.12)] bg-amber-500/[0.02]"
-                                : isLocked
-                                  ? "border-zinc-800 cursor-not-allowed text-zinc-600"
-                                  : "border-zinc-700"
+                              ? "border-amber-500/50 cursor-pointer shadow-[0_0_25px_rgba(245,158,11,0.12)] bg-amber-500/[0.02]"
+                              : isLocked
+                                ? "border-zinc-800 cursor-not-allowed text-zinc-600"
+                                : "border-zinc-700"
                               }`}
                             onClick={() => isInteractive && handleRevealBlock(sub.id)}
                             id={`mystery-box-${sub.id}`}
@@ -558,8 +558,8 @@ export default function App() {
 
                             {/* The ? Box Centerpiece */}
                             <div className={`w-28 h-28 rounded-2xl flex flex-col items-center justify-center transform transition-all duration-300 relative ${isInteractive
-                                ? "bg-gradient-to-b from-amber-400 to-amber-600 border-4 border-amber-300 shadow-[0_6px_0_#9a3412] active:translate-y-1 active:shadow-0"
-                                : "bg-zinc-900 border-4 border-zinc-800 text-zinc-700"
+                              ? "bg-gradient-to-b from-amber-400 to-amber-600 border-4 border-amber-300 shadow-[0_6px_0_#9a3412] active:translate-y-1 active:shadow-0"
+                              : "bg-zinc-900 border-4 border-zinc-800 text-zinc-700"
                               } ${isHovered ? "animate-bounce-block" : ""}`}>
 
                               <span className={`font-display text-4xl font-extrabold ${isInteractive ? "text-amber-950 font-game drop-shadow-md text-3xl" : "text-zinc-700"
@@ -594,8 +594,8 @@ export default function App() {
                           >
                             {/* Accent Top Line from Bold Typography specifications */}
                             <div className={`absolute top-0 inset-x-0 h-1.5 w-full ${sub.id === 1 ? "bg-mario-yellow" :
-                                sub.id === 2 ? "bg-mario-red" :
-                                  "bg-mario-blue"
+                              sub.id === 2 ? "bg-mario-red" :
+                                "bg-mario-blue"
                               }`} />
 
                             {/* Inner ambient glow background */}
@@ -606,8 +606,8 @@ export default function App() {
                               <div className="flex items-center gap-2">
                                 {/* Theme dependent custom status light */}
                                 <div className={`w-2.5 h-2.5 rounded-full ${sub.color === "amber" ? "bg-amber-400 shadow-[0_0_8px_#f59e0b]" :
-                                    sub.color === "red" ? "bg-red-500 shadow-[0_0_8px_#ef4444]" :
-                                      "bg-emerald-400 shadow-[0_0_8px_#10b981]"
+                                  sub.color === "red" ? "bg-red-500 shadow-[0_0_8px_#ef4444]" :
+                                    "bg-emerald-400 shadow-[0_0_8px_#10b981]"
                                   }`} />
                                 <span className={`text-[12px] font-mono tracking-widest font-semibold ${sub.primaryClass} uppercase`}>
                                   DIVISI ACARA
@@ -803,8 +803,8 @@ export default function App() {
                   >
                     {/* Accent Top Line from Bold Typography specifications */}
                     <div className={`absolute top-0 inset-x-0 h-1.5 w-full ${sub.id === 1 ? "bg-mario-yellow" :
-                        sub.id === 2 ? "bg-mario-red" :
-                          "bg-mario-blue"
+                      sub.id === 2 ? "bg-mario-red" :
+                        "bg-mario-blue"
                       }`} />
                     <div className="flex justify-between items-center mb-3">
                       <span className={`text-[10px] font-mono font-bold tracking-widest ${sub.primaryClass} uppercase`}>
@@ -865,10 +865,10 @@ export default function App() {
       {/* Styled bottom game platform/fender visual (Professional retro layout decoration) */}
       <footer className="relative z-10 px-6 py-6 border-t border-white/5 bg-black/40 flex flex-col sm:flex-row gap-4 justify-between items-center text-zinc-500 font-mono text-[10px] tracking-widest text-center sm:text-left select-none">
         <div className="flex items-center gap-2">
-          <span>POWERED BY SPECTRA 2026 ENGINE</span>
+
         </div>
         <div className="flex gap-4">
-          <span className="text-amber-500/80">★ MARIO ACARA ENGINE ★</span>
+
         </div>
       </footer>
     </div>
