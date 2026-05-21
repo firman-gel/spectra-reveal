@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, ChangeEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Sparkles,
@@ -25,6 +25,7 @@ interface Member {
   badge: string;
   color: string;
   bgGlow: string;
+  photo: string;
 }
 
 interface Subdivision {
@@ -52,9 +53,9 @@ const SUBDIVISIONS_DATA: Subdivision[] = [
     bgGradient: "from-mario-yellow/10 to-transparent",
     description: "Merancang ide, tema, dan identitas acara sejak tahap awal. Menyusun arah cerita serta pengalaman yang ingin dibangun agar setiap kegiatan memiliki makna dan karakter yang kuat.",
     members: [
-      { name: "Liora", role: "Esther Liora Bara", badge: "1", color: "text-mario-yellow", bgGlow: "bg-mario-yellow/5 border-mario-yellow/20" },
-      { name: "Nanay", role: "Nayla Novianti", badge: "2", color: "text-amber-300", bgGlow: "bg-amber-400/5 border-amber-500/20" },
-      { name: "Siti", role: "Siti Nurhalimah", badge: "3", color: "text-yellow-300", bgGlow: "bg-yellow-400/5 border-yellow-500/20" },
+      { name: "Liora", role: "Esther Liora Bara", badge: "1", color: "text-mario-yellow", bgGlow: "bg-mario-yellow/5 border-mario-yellow/20", photo: "/spectra-reveal/photos/liora.jpg" },
+      { name: "Nanay", role: "Nayla Novianti", badge: "2", color: "text-amber-300", bgGlow: "bg-amber-400/5 border-amber-500/20", photo: "/spectra-reveal/photos/nanay.jpg" },
+      { name: "Siti", role: "Siti Nurhalimah", badge: "3", color: "text-yellow-300", bgGlow: "bg-yellow-400/5 border-yellow-500/20", photo: "/spectra-reveal/photos/siti.jpg" },
     ],
   },
   {
@@ -68,9 +69,9 @@ const SUBDIVISIONS_DATA: Subdivision[] = [
     bgGradient: "from-mario-red/10 to-transparent",
     description: "Mengelola performer dan kebutuhan panggung dengan koordinasi yang terarah. Menjaga komunikasi, ritme penampilan, dan kenyamanan agar seluruh talent dapat tampil maksimal.",
     members: [
-      { name: "Radha", role: "Radha Falisha Khairina", badge: "1", color: "text-mario-red", bgGlow: "bg-mario-red/5 border-mario-red/20" },
-      { name: "Naima", role: "Naima Sahitya Andini", badge: "2", color: "text-rose-300", bgGlow: "bg-rose-400/5 border-rose-500/20" },
-      { name: "Dara", role: "Darasadiah Isnaini Salsabila", badge: "3", color: "text-orange-300", bgGlow: "bg-rose-400/5 border-rose-500/20" },
+      { name: "Radha", role: "Radha Falisha Khairina", badge: "1", color: "text-mario-red", bgGlow: "bg-mario-red/5 border-mario-red/20", photo: "/spectra-reveal/photos/radha.jpg" },
+      { name: "Naima", role: "Naima Sahitya Andini", badge: "2", color: "text-rose-300", bgGlow: "bg-rose-400/5 border-rose-500/20", photo: "/spectra-reveal/photos/naima.jpg" },
+      { name: "Dara", role: "Darasadiah Isnaini Salsabila", badge: "3", color: "text-orange-300", bgGlow: "bg-rose-400/5 border-rose-500/20", photo: "/spectra-reveal/photos/dara.jpg" },
     ],
   },
   {
@@ -84,9 +85,9 @@ const SUBDIVISIONS_DATA: Subdivision[] = [
     bgGradient: "from-mario-blue/10 to-transparent",
     description: "Mengawal sistem dan jalannya eksekusi di balik layar. Memastikan aspek teknis, alur operasional, dan kebutuhan lapangan berjalan presisi serta selaras dengan rancangan acara.",
     members: [
-      { name: "Kaura", role: "Anandigita Khauralya Putri", badge: "1", color: "text-mario-blue", bgGlow: "bg-mario-blue/5 border-mario-blue/20" },
-      { name: "Aldan", role: "Raden Muhammad Rizky Aldani", badge: "2", color: "text-sky-300", bgGlow: "bg-sky-400/5 border-sky-500/20" },
-      { name: "Nayya", role: "Nayyara Varda Wistan", badge: "3", color: "text-blue-300", bgGlow: "bg-blue-400/5 border-blue-500/20" },
+      { name: "Kaura", role: "Anandigita Khauralya Putri", badge: "1", color: "text-mario-blue", bgGlow: "bg-mario-blue/5 border-mario-blue/20", photo: "/spectra-reveal/photos/kaura.jpg" },
+      { name: "Aldan", role: "Raden Muhammad Rizky Aldani", badge: "2", color: "text-sky-300", bgGlow: "bg-sky-400/5 border-sky-500/20", photo: "/spectra-reveal/photos/aldan.jpg" },
+      { name: "Nayya", role: "Nayyara Varda Wistan", badge: "3", color: "text-blue-300", bgGlow: "bg-blue-400/5 border-blue-500/20", photo: "/spectra-reveal/photos/nayya.jpg" },
     ],
   },
 ];
@@ -100,6 +101,7 @@ export default function App() {
   const [scene, setScene] = useState<number>(0);
   const [revealedSubs, setRevealedSubs] = useState<number[]>([]);
   const [activeRevealingSubId, setActiveRevealingSubId] = useState<number | null>(null);
+  const [memberPhotos, setMemberPhotos] = useState<{ [key: string]: string }>({});
 
   // Member cascading reveal trackers (how many members currently shown for each subdivision)
   const [revealedMemberCounts, setRevealedMemberCounts] = useState<{ [key: number]: number }>({
@@ -299,7 +301,39 @@ export default function App() {
     setActiveRevealingSubId(null);
     setRevealedMemberCounts({ 1: 0, 2: 0, 3: 0 });
   };
+  const handlePhotoUpload = (
+    memberName: string,
+    e: ChangeEvent<HTMLInputElement>
+  ) => {
+    const file = e.target.files?.[0];
 
+    if (file) {
+      playSoundEffect("coin");
+
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        if (typeof reader.result === "string") {
+          setMemberPhotos((prev) => ({
+            ...prev,
+            [memberName]: reader.result,
+          }));
+        }
+      };
+
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleRemovePhoto = (memberName: string) => {
+    playSoundEffect("stamp");
+
+    setMemberPhotos((prev) => {
+      const copy = { ...prev };
+      delete copy[memberName];
+      return copy;
+    });
+  };
   return (
     <div
       className="relative min-h-screen text-zinc-100 overflow-x-hidden font-sans flex flex-col justify-between selection:bg-mario-red selection:text-white"
@@ -716,7 +750,7 @@ export default function App() {
                     id="trigger-sub2-btn"
                   >
                     <Mic className="w-5 h-5 fill-current" />
-                    <span>KETUK & REVEAL SUB DIVISI KAMUT</span>
+                    <span>KETUK & REVEAL SUB DIVISI KAMU</span>
                   </button>
                 )}
 
@@ -801,43 +835,52 @@ export default function App() {
                     key={sub.id}
                     className={`relative p-5 pt-8 rounded-2xl border bg-zinc-950/45 backdrop-blur-sm border-white/5 transition-transform hover:-translate-y-2 duration-300 overflow-hidden ${sub.glowClass}`}
                   >
-                    {/* Accent Top Line from Bold Typography specifications */}
-                    <div className={`absolute top-0 inset-x-0 h-1.5 w-full ${sub.id === 1 ? "bg-mario-yellow" :
-                      sub.id === 2 ? "bg-mario-red" :
-                        "bg-mario-blue"
-                      }`} />
+                    <div
+                      className={`absolute top-0 inset-x-0 h-1.5 w-full ${sub.id === 1
+                        ? "bg-mario-yellow"
+                        : sub.id === 2
+                          ? "bg-mario-red"
+                          : "bg-mario-blue"
+                        }`}
+                    />
+
                     <div className="flex justify-between items-center mb-3">
-                      <span className={`text-[10px] font-mono font-bold tracking-widest ${sub.primaryClass} uppercase`}>
+                      <span
+                        className={`text-[10px] font-mono font-bold tracking-widest ${sub.primaryClass} uppercase`}
+                      >
                         {sub.name}
                       </span>
-                      <div className={`p-1.5 rounded-lg border ${sub.primaryClass} bg-white/5`}>
-                        {sub.icon === "creative" && <Lightbulb className="w-4 h-4 text-amber-400" />}
-                        {sub.icon === "talent" && <Mic className="w-4 h-4 text-red-500" />}
-                        {sub.icon === "technical" && <Settings className="w-4 h-4 text-emerald-400" />}
-                      </div>
                     </div>
 
                     <p className="text-zinc-500 text-[11px] leading-relaxed mb-4">
                       {sub.description}
                     </p>
 
-                    <div className="space-y-2">
+                    <div className="grid grid-cols-1 gap-5 mt-5">
                       {sub.members.map((member) => (
                         <div
                           key={member.name}
-                          className={`flex items-center justify-between p-2.5 rounded-xl border bg-black/30 border-white/5`}
+                          className="relative rounded-2xl bg-zinc-900/80 border border-white/10 p-3 overflow-hidden"
                         >
-                          <div className="flex items-center gap-2">
-                            <div className={`w-5 h-5 rounded flex items-center justify-center font-mono text-[9px] font-bold ${member.color} border border-white/5 bg-zinc-900`}>
-                              {member.name[0]}
-                            </div>
-                            <span className="font-display font-extrabold text-zinc-100 text-[12px]">
-                              {member.name}
-                            </span>
+                          <div className="aspect-[3/4] rounded-xl overflow-hidden border border-white/5 relative">
+                            <img
+                              src={member.photo}
+                              alt={member.name}
+                              className="absolute inset-0 w-full h-full object-cover z-10"
+                              onError={() => console.log("FAILED:", member.photo)}
+                              onLoad={() => console.log("LOADED:", member.photo)}
+                            />
                           </div>
-                          <span className="font-mono text-[8px] text-zinc-500 tracking-wider uppercase">
-                            {member.badge}
-                          </span>
+
+                          <div className="mt-3 text-center">
+                            <h4 className="font-display font-black text-sm text-white">
+                              {member.name}
+                            </h4>
+
+                            <p className="text-[10px] text-zinc-500 font-mono tracking-widest uppercase mt-1">
+                              {member.role}
+                            </p>
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -853,7 +896,7 @@ export default function App() {
                   id="reset-experience-btn"
                 >
                   <RotateCcw className="w-4 h-4 text-zinc-400" />
-                  <span>REPLAY EXPERIENCES</span>
+                  <span>REPLAY EXPERIENCE</span>
                 </button>
               </div>
             </motion.div>
@@ -871,6 +914,6 @@ export default function App() {
 
         </div>
       </footer>
-    </div>
+    </div >
   );
 }
