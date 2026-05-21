@@ -1,0 +1,6 @@
+{
+  "name": "Division Reveal - Divisi Acara Spectra",
+  "description": "An interactive, immersive division reveal experience for the Event Division of Spectra, with a playful Mario Bros aesthetic theme.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
