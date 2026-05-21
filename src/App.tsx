@@ -331,7 +331,7 @@ export default function App() {
           </div>
           <div>
             <span className="font-display font-bold tracking-tight text-white block text-sm">SPECTRA ACARA</span>
-            <span className="font-mono text-[9px] text-zinc-400 tracking-widest block -mt-1 uppercase">Event Engine v2.6</span>
+
           </div>
         </div>
 
