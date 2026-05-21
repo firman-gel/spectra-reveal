@@ -452,7 +452,7 @@ export default function App() {
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
 
                 <h2 className="font-display text-2xl md:text-4xl font-light italic text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-300 tracking-wide leading-relaxed">
-                  "Every great event begins with the right people."
+                  "Pepatah Mengatakan: Kadiv Keren Maka Anaknya Juga Keren"
                 </h2>
 
                 <div className="w-14 h-1 bg-gradient-to-r from-red-500 via-amber-400 to-emerald-500 mx-auto mt-6 rounded-full opacity-60" />
