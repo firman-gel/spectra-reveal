@@ -50,11 +50,11 @@ const SUBDIVISIONS_DATA: Subdivision[] = [
     primaryClass: "text-mario-yellow border-mario-yellow/30",
     glowClass: "shadow-[0_0_30px_rgba(253,184,19,0.25)] border-mario-yellow/40 hover:border-mario-yellow/70",
     bgGradient: "from-mario-yellow/10 to-transparent",
-    description: "Para perancang maha-karya. Merumuskan konsep, tema, dan alur narasi demi menghidupkan jiwa dari setiap kegiatan.",
+    description: "Merancang ide, tema, dan identitas acara sejak tahap awal. Menyusun arah cerita serta pengalaman yang ingin dibangun agar setiap kegiatan memiliki makna dan karakter yang kuat.",
     members: [
-      { name: "Liora", role: "Concept Master", badge: "Visionary", color: "text-mario-yellow", bgGlow: "bg-mario-yellow/5 border-mario-yellow/20" },
-      { name: "Nanay", role: "Structural Lead", badge: "The Brain", color: "text-amber-300", bgGlow: "bg-amber-400/5 border-amber-500/20" },
-      { name: "Siti", role: "Flow strategist", badge: "Coordinator", color: "text-yellow-300", bgGlow: "bg-yellow-400/5 border-yellow-500/20" },
+      { name: "Liora", role: "Esther Liora Bara", badge: "1", color: "text-mario-yellow", bgGlow: "bg-mario-yellow/5 border-mario-yellow/20" },
+      { name: "Nanay", role: "Nayla Novianti", badge: "2", color: "text-amber-300", bgGlow: "bg-amber-400/5 border-amber-500/20" },
+      { name: "Siti", role: "Siti Nurhalimah", badge: "3", color: "text-yellow-300", bgGlow: "bg-yellow-400/5 border-yellow-500/20" },
     ],
   },
   {
@@ -66,27 +66,27 @@ const SUBDIVISIONS_DATA: Subdivision[] = [
     primaryClass: "text-mario-red border-mario-red/30",
     glowClass: "shadow-[0_0_30px_rgba(230,36,41,0.25)] border-mario-red/40 hover:border-mario-red/70",
     bgGradient: "from-mario-red/10 to-transparent",
-    description: "Penjaga keselarasan panggung. Mengasuh, memandu, dan memastikan bintang-bintang penampil bersinar pada garis orbitnya.",
+    description: "Mengelola performer dan kebutuhan panggung dengan koordinasi yang terarah. Menjaga komunikasi, ritme penampilan, dan kenyamanan agar seluruh talent dapat tampil maksimal.",
     members: [
-      { name: "Radha", role: "Talent Maestro", badge: "Spotlight", color: "text-mario-red", bgGlow: "bg-mario-red/5 border-mario-red/20" },
-      { name: "Naima", role: "Performance Director", badge: "Director", color: "text-rose-300", bgGlow: "bg-rose-400/5 border-rose-500/20" },
-      { name: "Dara", role: "Public Relations Liaison", badge: "Ambassador", color: "text-orange-300", bgGlow: "bg-rose-400/5 border-rose-500/20" },
+      { name: "Radha", role: "Radha Falisha Khairina", badge: "1", color: "text-mario-red", bgGlow: "bg-mario-red/5 border-mario-red/20" },
+      { name: "Naima", role: "Naima Sahitya Andini", badge: "2", color: "text-rose-300", bgGlow: "bg-rose-400/5 border-rose-500/20" },
+      { name: "Dara", role: "Darasadiah Isnaini Salsabila", badge: "3", color: "text-orange-300", bgGlow: "bg-rose-400/5 border-rose-500/20" },
     ],
   },
   {
     id: 3,
     name: "Teknis",
-    englishTitle: "The Engine Room",
+    englishTitle: "Flow Management",
     icon: "technical",
     color: "emerald",
     primaryClass: "text-mario-blue border-mario-blue/30",
     glowClass: "shadow-[0_0_30px_rgba(0,85,164,0.25)] border-mario-blue/40 hover:border-mario-blue/70",
     bgGradient: "from-mario-blue/10 to-transparent",
-    description: "Penguasa kendali di balik layar. Menjaga presisi ketukan waktu, kelancaran transmisi, dan kestabilan ekosistem panggung.",
+    description: "Mengawal sistem dan jalannya eksekusi di balik layar. Memastikan aspek teknis, alur operasional, dan kebutuhan lapangan berjalan presisi serta selaras dengan rancangan acara.",
     members: [
-      { name: "Kaura", role: "Technical Designer", badge: "Blueprint", color: "text-mario-blue", bgGlow: "bg-mario-blue/5 border-mario-blue/20" },
-      { name: "Aldan", role: "Hardware Specialist", badge: "The Engine", color: "text-sky-300", bgGlow: "bg-sky-400/5 border-sky-500/20" },
-      { name: "Nayya", role: "Operations Supervisor", badge: "The Flow", color: "text-blue-300", bgGlow: "bg-blue-400/5 border-blue-500/20" },
+      { name: "Kaura", role: "Anandigita Khauralya Putri", badge: "1", color: "text-mario-blue", bgGlow: "bg-mario-blue/5 border-mario-blue/20" },
+      { name: "Aldan", role: "Raden Muhammad Rizky Aldani", badge: "2", color: "text-sky-300", bgGlow: "bg-sky-400/5 border-sky-500/20" },
+      { name: "Nayya", role: "Nayyara Varda Wistan", badge: "3", color: "text-blue-300", bgGlow: "bg-blue-400/5 border-blue-500/20" },
     ],
   },
 ];
@@ -494,7 +494,7 @@ export default function App() {
                   THE ARCHITECTS OF EXPERIENCE
                 </h2>
                 <h1 className="font-display font-black text-4xl md:text-5xl text-white tracking-tighter leading-tight uppercase">
-                  SPECTRA TEAM 2026
+                  SUB DIVISION REVEAL
                 </h1>
                 <p className="text-zinc-400 font-sans text-xs md:text-sm mt-3 max-w-lg mx-auto leading-relaxed">
                   Ketuk kotak bertanda <span className="text-mario-yellow font-bold">?</span> di bawah sesuai urutan kelap-kelip untuk memanggil tim Spectra!
@@ -643,7 +643,7 @@ export default function App() {
                             {/* Crew/Members Reveal list */}
                             <div className="mt-auto space-y-3">
                               <span className="text-[10px] font-mono text-zinc-500 block uppercase tracking-widest mb-1">
-                                Membawa Formasi:
+                                Para Orang - Orang Keren:
                               </span>
 
                               {sub.members.map((member, mIdx) => {
@@ -705,7 +705,7 @@ export default function App() {
                     id="trigger-sub1-btn"
                   >
                     <Lightbulb className="w-5 h-5 fill-current animate-bounce" />
-                    <span>KETUK & REVEAL KONSEPTOR</span>
+                    <span>KETUK & REVEAL SUB DIVISI KAMU</span>
                   </button>
                 )}
 
@@ -716,7 +716,7 @@ export default function App() {
                     id="trigger-sub2-btn"
                   >
                     <Mic className="w-5 h-5 fill-current" />
-                    <span>KETUK & REVEAL TALENT MANAGEMENT</span>
+                    <span>KETUK & REVEAL SUB DIVISI KAMUT</span>
                   </button>
                 )}
 
@@ -727,7 +727,7 @@ export default function App() {
                     id="trigger-sub3-btn"
                   >
                     <Settings className="w-5 h-5 animate-spin" style={{ animationDuration: "6s" }} />
-                    <span>KETUK & REVEAL TEKNIS</span>
+                    <span>KETUK & REVEAL SUB DIVISI KAMU</span>
                   </button>
                 )}
 
