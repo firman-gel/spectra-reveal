@@ -100,7 +100,7 @@ export default function App() {
   const [scene, setScene] = useState<number>(0);
   const [revealedSubs, setRevealedSubs] = useState<number[]>([]);
   const [activeRevealingSubId, setActiveRevealingSubId] = useState<number | null>(null);
-  
+
   // Member cascading reveal trackers (how many members currently shown for each subdivision)
   const [revealedMemberCounts, setRevealedMemberCounts] = useState<{ [key: number]: number }>({
     1: 0,
@@ -255,7 +255,7 @@ export default function App() {
         [subId]: count
       }));
       playSoundEffect("coin");
-      
+
       if (count >= 3) {
         clearInterval(interval);
       }
@@ -269,7 +269,7 @@ export default function App() {
       playSoundEffect("stamp");
       return;
     }
-    
+
     playSoundEffect("jump");
     setActiveRevealingSubId(subId);
 
@@ -301,14 +301,14 @@ export default function App() {
   };
 
   return (
-    <div 
+    <div
       className="relative min-h-screen text-zinc-100 overflow-x-hidden font-sans flex flex-col justify-between selection:bg-mario-red selection:text-white"
-      style={{ 
-        background: "radial-gradient(circle at top right, rgba(230, 36, 41, 0.18), transparent), radial-gradient(circle at bottom left, rgba(0, 85, 164, 0.18), transparent)", 
-        backgroundColor: "#0F172A" 
+      style={{
+        background: "radial-gradient(circle at top right, rgba(230, 36, 41, 0.18), transparent), radial-gradient(circle at bottom left, rgba(0, 85, 164, 0.18), transparent)",
+        backgroundColor: "#0F172A"
       }}
     >
-      
+
       {/* Absolute Pixel Star/Cloud background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
         {/* Floating Clouds */}
@@ -342,11 +342,10 @@ export default function App() {
               setTimeout(() => playSoundEffect("coin"), 100);
             }
           }}
-          className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono tracking-wider border transition-all duration-300 ${
-            soundEnabled
+          className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono tracking-wider border transition-all duration-300 ${soundEnabled
               ? "bg-amber-500/10 border-amber-500/40 text-amber-300 shadow-[0_0_10px_rgba(245,158,11,0.15)]"
               : "bg-zinc-800 border-zinc-700 text-zinc-500"
-          }`}
+            }`}
           id="audio-toggle-btn"
         >
           {soundEnabled ? (
@@ -366,7 +365,7 @@ export default function App() {
       {/* Main Experience Arena */}
       <main className="relative flex-grow flex flex-col items-center justify-center px-4 md:px-8 py-10">
         <AnimatePresence mode="wait">
-          
+
           {/* SCENE 0: Hero Entrance / Press Start */}
           {scene === 0 && (
             <motion.div
@@ -394,15 +393,13 @@ export default function App() {
                   SPECTRA
                 </span>
               </h1>
-              
+
               <p className="font-display font-light text-xl md:text-2xl text-mario-yellow tracking-[8px] uppercase text-center mt-6">
                 Subdivision Reveal
               </p>
 
               {/* Styled Interactive Instructions */}
-              <p className="mt-8 text-zinc-400 font-sans font-light max-w-md text-base text-center leading-relaxed">
-                Platform imersif pengumuman pembagian tim divisi acara Spectra. Siapkan mata dan pendengaran Anda untuk petualangan pembagian kru kami.
-              </p>
+
 
               {/* Gaming styled beveled button */}
               <div className="mt-14 relative group">
@@ -453,11 +450,11 @@ export default function App() {
               {/* Glowing Ambient Box */}
               <div className="p-8 md:p-12 rounded-3xl bg-white/[0.02] backdrop-blur-md border border-white/5 shadow-2xl relative overflow-hidden max-w-xl">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-                
+
                 <h2 className="font-display text-2xl md:text-4xl font-light italic text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-300 tracking-wide leading-relaxed">
                   "Every great event begins with the right people."
                 </h2>
-                
+
                 <div className="w-14 h-1 bg-gradient-to-r from-red-500 via-amber-400 to-emerald-500 mx-auto mt-6 rounded-full opacity-60" />
               </div>
 
@@ -511,18 +508,18 @@ export default function App() {
                   const isInteractive = sub.id === revealedSubs.length + 1;
                   const isLocked = sub.id > revealedSubs.length + 1;
                   const isHovered = activeRevealingSubId === sub.id;
-                  
+
                   return (
                     <div key={sub.id} className="relative min-h-[460px] flex flex-col">
                       <AnimatePresence mode="wait">
-                        
+
                         {/* UNREVEALED / MYSTERY BOX STATE */}
                         {!isRevealed ? (
                           <motion.div
                             key="mystery"
                             initial={{ scale: 0.95, opacity: 0.8 }}
-                            animate={{ 
-                              scale: 1, 
+                            animate={{
+                              scale: 1,
                               opacity: isLocked ? 0.45 : 1,
                               y: isInteractive ? [0, -10, 0] : 0
                             }}
@@ -535,13 +532,12 @@ export default function App() {
                               scale: { duration: 0.3 }
                             }}
                             exit={{ scale: 0.92, opacity: 0, rotateY: 90 }}
-                            className={`flex-grow flex flex-col items-center justify-center p-8 rounded-3xl border-2 border-dashed bg-black/30 backdrop-blur-sm shadow-xl transition-all duration-300 relative ${
-                              isInteractive 
+                            className={`flex-grow flex flex-col items-center justify-center p-8 rounded-3xl border-2 border-dashed bg-black/30 backdrop-blur-sm shadow-xl transition-all duration-300 relative ${isInteractive
                                 ? "border-amber-500/50 cursor-pointer shadow-[0_0_25px_rgba(245,158,11,0.12)] bg-amber-500/[0.02]"
-                                : isLocked 
-                                  ? "border-zinc-800 cursor-not-allowed text-zinc-600" 
+                                : isLocked
+                                  ? "border-zinc-800 cursor-not-allowed text-zinc-600"
                                   : "border-zinc-700"
-                            }`}
+                              }`}
                             onClick={() => isInteractive && handleRevealBlock(sub.id)}
                             id={`mystery-box-${sub.id}`}
                           >
@@ -561,15 +557,13 @@ export default function App() {
                             )}
 
                             {/* The ? Box Centerpiece */}
-                            <div className={`w-28 h-28 rounded-2xl flex flex-col items-center justify-center transform transition-all duration-300 relative ${
-                              isInteractive 
-                                ? "bg-gradient-to-b from-amber-400 to-amber-600 border-4 border-amber-300 shadow-[0_6px_0_#9a3412] active:translate-y-1 active:shadow-0" 
+                            <div className={`w-28 h-28 rounded-2xl flex flex-col items-center justify-center transform transition-all duration-300 relative ${isInteractive
+                                ? "bg-gradient-to-b from-amber-400 to-amber-600 border-4 border-amber-300 shadow-[0_6px_0_#9a3412] active:translate-y-1 active:shadow-0"
                                 : "bg-zinc-900 border-4 border-zinc-800 text-zinc-700"
-                            } ${isHovered ? "animate-bounce-block" : ""}`}>
-                              
-                              <span className={`font-display text-4xl font-extrabold ${
-                                isInteractive ? "text-amber-950 font-game drop-shadow-md text-3xl" : "text-zinc-700"
-                              }`}>?</span>
+                              } ${isHovered ? "animate-bounce-block" : ""}`}>
+
+                              <span className={`font-display text-4xl font-extrabold ${isInteractive ? "text-amber-950 font-game drop-shadow-md text-3xl" : "text-zinc-700"
+                                }`}>?</span>
 
                               {/* Tiny dots in corners of Nintendo blocks */}
                               <div className="absolute top-1.5 left-1.5 w-1 h-1 bg-black/20 rounded-full" />
@@ -578,18 +572,17 @@ export default function App() {
                               <div className="absolute bottom-1.5 right-1.5 w-1 h-1 bg-black/20 rounded-full" />
                             </div>
 
-                            <p className={`mt-8 text-center text-xs font-mono max-w-[190px] ${
-                              isInteractive ? "text-amber-300/85 animate-pulse" : "text-zinc-600"
-                            }`}>
-                              {isInteractive 
-                                ? "Click Block to Reveal!" 
-                                : isLocked 
-                                  ? "Locked (Wait turn)" 
+                            <p className={`mt-8 text-center text-xs font-mono max-w-[190px] ${isInteractive ? "text-amber-300/85 animate-pulse" : "text-zinc-600"
+                              }`}>
+                              {isInteractive
+                                ? "Click Block to Reveal!"
+                                : isLocked
+                                  ? "Locked (Wait turn)"
                                   : "Completed"}
                             </p>
                           </motion.div>
                         ) : (
-                          
+
                           // REVEALED CARD STATE (PREMIUM MODERN SLATE CARD)
                           <motion.div
                             key="revealed"
@@ -600,11 +593,10 @@ export default function App() {
                             id={`revealed-card-${sub.id}`}
                           >
                             {/* Accent Top Line from Bold Typography specifications */}
-                            <div className={`absolute top-0 inset-x-0 h-1.5 w-full ${
-                              sub.id === 1 ? "bg-mario-yellow" : 
-                              sub.id === 2 ? "bg-mario-red" : 
-                              "bg-mario-blue"
-                            }`} />
+                            <div className={`absolute top-0 inset-x-0 h-1.5 w-full ${sub.id === 1 ? "bg-mario-yellow" :
+                                sub.id === 2 ? "bg-mario-red" :
+                                  "bg-mario-blue"
+                              }`} />
 
                             {/* Inner ambient glow background */}
                             <div className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-br ${sub.bgGradient} rounded-full blur-2xl pointer-events-none`} />
@@ -613,11 +605,10 @@ export default function App() {
                             <div className="flex justify-between items-start mb-4">
                               <div className="flex items-center gap-2">
                                 {/* Theme dependent custom status light */}
-                                <div className={`w-2.5 h-2.5 rounded-full ${
-                                  sub.color === "amber" ? "bg-amber-400 shadow-[0_0_8px_#f59e0b]" :
-                                  sub.color === "red" ? "bg-red-500 shadow-[0_0_8px_#ef4444]" :
-                                  "bg-emerald-400 shadow-[0_0_8px_#10b981]"
-                                }`} />
+                                <div className={`w-2.5 h-2.5 rounded-full ${sub.color === "amber" ? "bg-amber-400 shadow-[0_0_8px_#f59e0b]" :
+                                    sub.color === "red" ? "bg-red-500 shadow-[0_0_8px_#ef4444]" :
+                                      "bg-emerald-400 shadow-[0_0_8px_#10b981]"
+                                  }`} />
                                 <span className={`text-[12px] font-mono tracking-widest font-semibold ${sub.primaryClass} uppercase`}>
                                   DIVISI ACARA
                                 </span>
@@ -705,7 +696,7 @@ export default function App() {
 
               {/* Persistent Bottom helper navigation or CTA block */}
               <div className="mt-14 w-full max-w-xl flex flex-col items-center">
-                
+
                 {/* Next Unlocks hints container */}
                 {revealedSubs.length === 0 && (
                   <button
@@ -811,11 +802,10 @@ export default function App() {
                     className={`relative p-5 pt-8 rounded-2xl border bg-zinc-950/45 backdrop-blur-sm border-white/5 transition-transform hover:-translate-y-2 duration-300 overflow-hidden ${sub.glowClass}`}
                   >
                     {/* Accent Top Line from Bold Typography specifications */}
-                    <div className={`absolute top-0 inset-x-0 h-1.5 w-full ${
-                      sub.id === 1 ? "bg-mario-yellow" : 
-                      sub.id === 2 ? "bg-mario-red" : 
-                      "bg-mario-blue"
-                    }`} />
+                    <div className={`absolute top-0 inset-x-0 h-1.5 w-full ${sub.id === 1 ? "bg-mario-yellow" :
+                        sub.id === 2 ? "bg-mario-red" :
+                          "bg-mario-blue"
+                      }`} />
                     <div className="flex justify-between items-center mb-3">
                       <span className={`text-[10px] font-mono font-bold tracking-widest ${sub.primaryClass} uppercase`}>
                         {sub.name}
